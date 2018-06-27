@@ -12,10 +12,21 @@
       <ion-thumbnail item-start>
         <img src="{{anime.thumbnail}}" alt="">
       </ion-thumbnail>
-<h2>{{anime.title}}</h2>
-<p>{{anime.description}}</p>
-  
-    <button ion-button clear item-end (click)="toDisplayPage(anime)">View</button>
+      <ion-row>
+        
+        <ion-col>
+          <h2>{{anime.title}}</h2>
+          <p>{{anime.description.substr(0,120)}}...</p>
+        </ion-col>
+
+        <ion-col >
+          <h2 float-right>{{anime.price | currency:usd}}</h2>
+        </ion-col>
+      </ion-row>
+
+
+
+      <button ion-button clear item-end (click)="toDisplayPage(anime)">View</button>
     </ion-item>
   </ion-list>
 </ion-content>

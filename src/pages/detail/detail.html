@@ -14,18 +14,20 @@
 
 
 <ion-content padding>
-  <ion-card style=" width: 25%;" class="center">
+  <ion-card class="center">
     <img src="{{selectedAnime.thumbnail}}" />
     <ion-card-content>
       <ion-card-title>
         {{selectedAnime.title}}
       </ion-card-title>
-
-      <button ion-button clear item-end (click)="toggle()">View Description</button>
+   <button ion-button clear float-left (click)="toggle()">View Description</button>
+         <h2 margin-vertical float-right>{{selectedAnime.price|currency:usd}}</h2>
+      
+      
     </ion-card-content>
   </ion-card>
 
-  <ion-card margin-top style="width:50%" class="center" *ngIf="flag">
+  <ion-card margin-top style="white-space:pre-line ;" class="center" *ngIf="flag">
     <ion-card-content>
       <p>
         {{selectedAnime.description}}
