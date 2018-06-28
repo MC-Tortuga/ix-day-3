@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { ANIMES } from '../../mock-data/anime-list-mock';
 import { Anime } from '../../models/anime';
 import { DetailPage } from '../detail/detail';
+import { CartPage } from '../cart/cart';
 
 
 @Component({
@@ -16,7 +17,9 @@ export class HomePage {
   }
 
   toDisplayPage(item: Anime) {
-  this.navCtrl.push(DetailPage,item)
+    this.navCtrl.push(DetailPage, { anime: item });
   }
-
+toCartPage(){
+  this.navCtrl.push(CartPage);
+}
 }

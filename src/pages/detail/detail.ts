@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Anime } from '../../models/anime';
+import { CartProvider } from '../../providers/cart/cart.service';
+import { CartPage } from '../cart/cart';
+
 
 /**
  * Generated class for the DetailPage page.
@@ -18,16 +21,26 @@ export class DetailPage {
   selectedAnime: Anime;
   flag: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.selectedAnime = navParams.data;
-    console.log(this.selectedAnime);
+  constructor(public navCtrl: NavController, public navParams: NavParams, public cartService: CartProvider) {
+    this.selectedAnime = navParams.get("anime");
+
   }
 
 
   toggle() {
     this.flag = !this.flag
   }
-  
+
+
+  toCartPage(){
+    this.navCtrl.push(CartPage);
+  }
+  addToCart(anime: Anime) {
+    this.cartService.addToCart(anime);
+    this.navCtrl.pop();
+ 
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailPage');
   }

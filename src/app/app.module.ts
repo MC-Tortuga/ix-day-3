@@ -7,12 +7,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DetailPage } from '../pages/detail/detail';
+import { CartProvider } from '../providers/cart/cart.service';
+import { CartPage } from '../pages/cart/cart';
+import { PaymentPage } from '../pages/payment/payment';
+
+
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    DetailPage
+    DetailPage,
+    CartPage,
+    PaymentPage
   ],
   imports: [
     BrowserModule,
@@ -23,12 +31,16 @@ import { DetailPage } from '../pages/detail/detail';
   entryComponents: [
     MyApp,
     HomePage,
-    DetailPage
+    DetailPage,
+    CartPage,
+    PaymentPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CartProvider,
+    
   ]
 })
 export class AppModule {}

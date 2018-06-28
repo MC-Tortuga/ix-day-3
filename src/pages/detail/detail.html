@@ -6,30 +6,32 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title >{{selectedAnime.title}}</ion-title>
+  <ion-navbar padding>
+    <ion-title color="light">{{selectedAnime.title}}</ion-title>
+    <ion-icon float-right color="light" ios="ios-cart" md="md-cart" (click)="toCartPage()"></ion-icon>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-card  class="center">
+  <ion-card class="center">
     <img src="{{selectedAnime.thumbnail}}" />
     <ion-card-content>
-      <ion-card-title style="color:white;">
+      <ion-card-title color="light">
         {{selectedAnime.title}}
       </ion-card-title>
-   <button ion-button clear float-left (click)="toggle()">View Description</button>
-         <h2 margin-vertical float-right>{{selectedAnime.price|currency:usd}}</h2>
-      
-      
+      <button ion-button clear float-left (click)="toggle()">View Description</button>
+
+      <h2 margin-vertical float-right>{{selectedAnime.price|currency:usd}}</h2>
+      <button ion-button block (click)="addToCart(selectedAnime)">Add To Cart</button>
+
     </ion-card-content>
   </ion-card>
 
-  <ion-card margin-top  class="center" *ngIf="flag">
-    <ion-card-content >
-      <p style="white-space:pre-line ; color:white;">
+  <ion-card margin-top class="center" *ngIf="flag">
+    <ion-card-content>
+      <p  style="white-space:pre-line; color: #f4f4f4;">
         {{selectedAnime.description}}
       </p>
     </ion-card-content>
